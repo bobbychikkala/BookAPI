@@ -3,15 +3,11 @@ import os.path
 import pytest
 import requests
 import json
-import jsonpath
+from requests.auth import AuthBase
 
 from utilities.ReadProperties import ReadConfig
 from utilities.ReadToken import accessToken
 from utilities.ReadJsonFile import ReadJsonFile
-
-
-
-
 
 class Test_002:
     token = accessToken()
@@ -61,6 +57,7 @@ class Test_002:
         url = self.baseURL+"/orders/"+Test_002.orderID
         response = requests.get(url,headers=self.headers)
         responseBody = response.json()
+        print(type(responseBody))
         assert responseBody['customerName'] =="Bobby"
         assert response.status_code == 200
 

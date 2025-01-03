@@ -1,4 +1,2 @@
-
-call .\.venv\Scripts\activate
-
-pytest -s -v testCases 
+pytest -s -v .\testCases
+python -m pytest -s -v .\testCases
